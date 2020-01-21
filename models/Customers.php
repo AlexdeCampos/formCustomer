@@ -16,27 +16,17 @@ class Customers extends model {
 	
 	public function add($request) {
 
-		$sql = $this->db->prepare("SELECT id FROM customers WHERE email = :email");
+		$sql = $this->db->prepare("INSERT INTO customers SET name = :name, email = :email, document = :document, tel = :tel");
+		$sql->bindValue(":name", $request["name"]);
 		$sql->bindValue(":email", $request["email"]);
+		$sql->bindValue(":document", $request["document"]);
+		$sql->bindValue(":tel", $request["tel"]);
 		$sql->execute();
-
-		if($sql->rowCount() == 0) {
-
-			$sql = $this->db->prepare("INSERT INTO customers SET name = :name, email = :email, document = :document, tel = :tel");
-			$sql->bindValue(":name", $request["name"]);
-			$sql->bindValue(":email", $request["email"]);
-			$sql->bindValue(":document", preg_replace('/\D/','',$request["document"]));
-			$sql->bindValue(":tel", preg_replace('/\D/','',$request["tel"]));
-			$sql->execute();
-
-			return $this->db->lastInsertId();
-
-		} else {
-			return false;
-		}
+		
+		return  $this->db->lastInsertId();
     }
 
-	public function edit($id,$request){
+	public function edit($request,$id){
 		$sql = $this->db->prepare("SELECT id FROM customers WHERE id = :id");
 		$sql->bindValue(":id", $id);
 		$sql->execute();
@@ -63,6 +53,5 @@ class Customers extends model {
 		$sql->bindValue(":id", $id);
 		$sql->execute();	
 	}
-
 }
 ?>

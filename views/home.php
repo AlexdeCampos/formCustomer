@@ -1,8 +1,5 @@
 <div class="container">
-
 	<div class="row">
-
-		<div class="col-sm-9">
 
 			<div class="d-flex ">
 				<h4 class="p-2">Clientes</h4>
@@ -11,7 +8,6 @@
 				
 			<table class="table table-striped">
 				<tbody>
-
 				<tr>
 					<th>Nome</th>
 					<th>Documento</th>
@@ -19,7 +15,6 @@
 					<th>Telefone</th>
 					<th></th>
 				</tr>
-
 					<?php foreach($customersList as $customer): ?>
 					<tr>
 						<td>
@@ -36,15 +31,12 @@
 						</td>
 						<td>
 							<a href="<?=BASE_URL.'customers/edit/'.$customer['id']?>">Editar</a>
-							<a href="<?=BASE_URL.'customers/del/'.$customer['id']?>">Excluir</a>
+							&nbsp;&nbsp;
+							<a href="<?=BASE_URL.'customers/del/'.$customer['id']?>" onclick="return confirm('Deseja excluir o Cliente <?=$customer['name']?> ?')">Excluir</a>
 						</td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>
 			</table>
-
-		</div>
 	</div>
-
-
 </div>

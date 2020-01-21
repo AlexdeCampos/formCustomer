@@ -1,10 +1,15 @@
 <?php
 class customersController extends controller {
     
+    protected $customers;
+
+	public function __construct() {
+		$this->customers = new Customers();
+    }
+    
 	public function index() {
-        $customers = new Customers();
 		$dados = array();
-		$customersList = $customers->getTotalCustomers();
+		$customersList = $this->customers->getTotalCustomers();
 
 		$dados['customersList'] = $customersList;
 		$this->loadTemplate('home', $dados);
@@ -22,15 +27,24 @@ class customersController extends controller {
         $this->loadTemplate('customer',$customerData);
     }
 
-    public function set($id = 0){
-        $customers = new Customers();
-        $post = $_POST;
+    public function edit($id){
+        $customerData = $this->customers->getCustomer($id);
+        $this->loadTemplate('customer', $customerData);
+    }
+    
+    public function del($id){
+        $this->customers->delete($id);
+        header('Location: '.BASE_URL);
+    }
 
+    public function set($id = 0){
+        $post = $_POST;
+        $lastId = 0;
         if($id > 0){
             $lastId = $id;
-            $customers->edit($id,$post);
+            $this->customers->edit($post,$id);
         }else{
-            $lastId = $customers->add($post);
+            $lastId = $this->customers->add($post);
         }
 
         if($lastId){
@@ -38,19 +52,4 @@ class customersController extends controller {
         }  
         
     }
-    
-    public function edit($id){
-        $customers = new Customers();
-        $customerData = $customers->getCustomer($id);
-
-        $this->loadTemplate('customer', $customerData);
-    }
-
-    public function del($id){
-        $customers = new Customers();
-
-        $customers->delete($id);
-        header('Location: '.BASE_URL);
-    }
-
 }
