@@ -41,7 +41,9 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `document`, `email`, `tel`) VALUES
-(1, 'Alex de Campos', '03153141924', 'matt.ribeiro14@outlook.com', '55449971225');
+(1, 'Danilo Márcio da Cruz', '24337684387', 'danilomarciodacruz-90@yahho.com.br', '19987390998'),;
+(2, 'Melissa Bianca Ferreira', '59340613481', 'cristianestefanymonteiro-76@plastic.com.br', '69981023899'),;
+(3, 'Roberto Leonardo Monteiro', '69640820938', 'danilomarciodacruz-90@yahho.com.br', '6935355042');
 
 --
 -- Índices para tabelas despejadas

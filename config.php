@@ -3,17 +3,17 @@ require 'environment.php';
 
 $config = array();
 if(ENVIRONMENT == 'development') {
-	define("BASE_URL", "http://localhost/projects/formCustomer/");
-	$config['dbname'] = 'formCustomer';
-	$config['host'] = 'localhost';
-	$config['dbuser'] = 'root';
-	$config['dbpass'] = '';
+	define("BASE_URL", "[[root]]");
+	$config['dbname'] = '[[dbname]]';
+	$config['host'] = '[[host]]';
+	$config['dbuser'] = '[[dbuser]]';
+	$config['dbpass'] = '[[dbpass]]';
 } else {
-	define("BASE_URL", "http://localhost/projects/formCustomer/");
-	$config['dbname'] = 'formCustomer';
-	$config['host'] = 'localhost';
-	$config['dbuser'] = 'root';
-	$config['dbpass'] = '';
+	define("BASE_URL", "[[root]]");
+	$config['dbname'] = '[[dbname]]';
+	$config['host'] = '[[host]]';
+	$config['dbuser'] = '[[dbuser]]';
+	$config['dbpass'] = '[[dbpass]]';
 }
 
 global $db;
