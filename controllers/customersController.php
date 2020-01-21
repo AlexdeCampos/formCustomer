@@ -48,7 +48,7 @@ class customersController extends controller {
         }
 
         if($lastId){
-            header('Location: '.BASE_URL."customers/edit/$lastId");
+            header('Location: '.BASE_URL."index.php?url=customers/edit/$lastId");
         }  
         
     }

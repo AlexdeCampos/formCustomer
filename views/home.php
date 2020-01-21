@@ -3,7 +3,7 @@
 
 			<div class="d-flex ">
 				<h4 class="p-2">Clientes</h4>
-				<h4 class="ml-auto p-2"><a href="<?=BASE_URL.'customers/new'?>">Novo Cliente</a></h4>
+				<h4 class="ml-auto p-2"><a href="<?=BASE_URL. 'index.php?url=customers/new'?>">Novo Cliente</a></h4>
 			</div>
 				
 			<table class="table table-striped">
@@ -30,9 +30,9 @@
 							<?=$customer['tel']?>
 						</td>
 						<td>
-							<a href="<?=BASE_URL.'customers/edit/'.$customer['id']?>">Editar</a>
+							<a href="<?=BASE_URL. 'index.php?url=customers/edit/'.$customer['id']?>">Editar</a>
 							&nbsp;&nbsp;
-							<a href="<?=BASE_URL.'customers/del/'.$customer['id']?>" onclick="return confirm('Deseja excluir o Cliente <?=$customer['name']?> ?')">Excluir</a>
+							<a href="<?=BASE_URL. 'index.php?url=customers/del/'.$customer['id']?>" onclick="return confirm('Deseja excluir o Cliente <?=$customer['name']?> ?')">Excluir</a>
 						</td>
 					</tr>
 					<?php endforeach; ?>

@@ -7,7 +7,7 @@
         </div>
 
         <div class="container">
-            <form action=<?="?url=customers/set/$id"?> method="post">
+            <form action=<?="index.php?url=customers/set/$id"?> method="post">
                 
                 <label for="name">Nome</label>
                 <input type="text" name="name" id="name" class="form-control" value="<?=$name?>" required>
